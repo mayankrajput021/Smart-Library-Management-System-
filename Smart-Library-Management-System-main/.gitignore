@@ -1,0 +1,14 @@
+# Build output
+out/
+testout/
+*.class
+
+# Runtime-generated data & logs (each fresh clone starts empty)
+data/
+logs/
+
+# OS/IDE noise
+.DS_Store
+.idea/
+*.iml
+.vscode/
