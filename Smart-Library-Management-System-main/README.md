@@ -1,50 +1,38 @@
 # Smart Library Management System (SLMS)
 
-A console-based Library Management System built in **Core Java**, developed
-as the "Build Your Own Project" submission for the **Java Programming**
-course (VITyarthi flipped-course evaluation).
-
-The project demonstrates core Java/OOP concepts — abstraction, inheritance,
-polymorphism, interfaces, the Collections Framework, exception handling,
-file I/O, and classic design patterns (Singleton, Factory, DAO) — inside a
-realistic, layered application rather than isolated exercises.
+This project is a console-based Student Management System developed in Core Java for the “Build Your Own Project” submission of the Java Programming course. It combines fundamental and advanced Java concepts, including abstraction, inheritance, polymorphism, interfaces, collections, exception handling, file handling, and design patterns, to build a structured application for managing student information and academic records.
 
 ## Overview
 
-SLMS lets an **Admin**, **Librarian**, or **Member** log in to a
-role-appropriate menu to manage a library's book catalog, issue/return
-books, track overdue fines, and view analytical reports. Data is persisted
-to human-readable CSV files, so the whole project runs with **zero external
-dependencies** — just a JDK.
+SMS allows an Admin, Faculty, or Student to log in through a role-based menu to manage student records, maintain course information, record attendance and marks, and generate academic reports. Data is stored in human-readable CSV files, allowing the complete application to run using only Core Java and a JDK, without requiring any external libraries or dependencies.
 
 ## Features
 
-- **Role-based access control** — Admin, Librarian, and Member each see a
-  different menu, enforced via an abstract `User` class with three
-  polymorphic subclasses.
-- **Book catalog management** — add, update, remove, list, and search books
-  by title/author/category.
-- **Issue & return workflow** — borrow limits (no duplicate active loans),
-  automatic due-date calculation (14-day loan period), and automatic
-  per-day overdue fine calculation on return.
-- **User management** — self-registration for members; Admins can create
-  Librarian/Admin accounts and delete users.
-- **Reporting & analytics** — inventory summary, most-borrowed books,
-  overdue report, and per-member activity/fines report.
-- **Centralized validation & custom exceptions** — every service method
-  validates input and raises a specific, catchable exception
-  (`InvalidInputException`, `DuplicateEntryException`,
-  `BookNotFoundException`, `UserNotFoundException`,
-  `AuthenticationException`, `BookUnavailableException`).
-- **File-based logging** — every significant action (login, book added,
-  book issued/returned, errors) is timestamped and written to
-  `logs/app.log` via a Singleton logger.
-- **Password hashing** — passwords are SHA-256 hashed before being written
-  to disk; plaintext passwords are never persisted.
-- **Self-contained test suite** — 20 unit tests exercising validation rules,
-  authentication, and the issue/return/fine lifecycle, run against
-  in-memory fakes (no external test framework required).
+## Features
 
+**Role-Based Authentication** — Separate login access is provided for Admin, Faculty, and Student users. Each role is directed to a dedicated menu with permissions appropriate to their responsibilities.
+
+**Student Records** — Manage complete student profiles with options to add, edit, delete, search, and display records using student ID, name, department, or semester.
+
+**Course Management** — Administrators and faculty can maintain course information, while students can view available subjects and register for their required courses.
+
+**Attendance Management** — Faculty can record and update subject-wise attendance, while students can view their attendance percentage and attendance history.
+
+**Marks & Grade Processing** — Faculty can enter examination marks, after which the system calculates total marks, percentage, and grades automatically.
+
+**User Administration** — Students can create their own accounts, while administrators can add faculty members, modify user details, and remove accounts when required.
+
+**Academic Reports** — Generate student performance summaries, attendance reports, course-wise statistics, and individual result reports for easier academic analysis.
+
+**Validation & Exception Handling** — Invalid inputs and unavailable records are handled using custom exceptions such as `InvalidInputException`, `DuplicateEntryException`, `StudentNotFoundException`, `CourseNotFoundException`, and `AuthenticationException`.
+
+**CSV-Based Storage** — Student, course, attendance, marks, and user information is stored in human-readable CSV files, providing persistent storage without requiring a database.
+
+**Application Logging** — Important events such as user login, record updates, attendance entries, result modifications, and errors are recorded with timestamps in `logs/app.log` using a Singleton-based logger.
+
+**Password Security** — User passwords are converted into SHA-256 hashes before being stored, ensuring that plain-text credentials are never persisted.
+
+**Testing Support** — Core application functionality is verified through independent test cases covering authentication, validation, registration, enrollment, attendance, marks, and exception-handling scenarios.
 ## Technologies / Tools Used
 
 | Concern            | Choice                                            |
@@ -124,7 +112,7 @@ All diagrams live in [`docs/diagrams/`](docs/diagrams) as Mermaid code
 
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/mayankrajput021/Smart-Library-Management-System-.git
 cd LibraryManagementSystem
 
 # 2. Compile the main application
@@ -191,3 +179,6 @@ screenshots here before submission if required by your instructor.)
 
 Academic project submitted for course evaluation. No specific license
 applied; reuse for educational purposes.
+
+## Author
+Mayank (24BAC10071)
